@@ -1,0 +1,24 @@
+server:
+  port:  8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/20065
+    username: root
+    password:
+    data:
+      mongodb:
+        uri: mongodb://localhost:27017/2006
+
+
+  application:
+    name: provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

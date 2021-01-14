@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="feign1" />
+        <module name="feignapi" />
+        <module name="common" />
+        <module name="provider" />
+        <module name="eureka" />
+        <module name="feign" />
+        <module name="fegin1" />
+        <module name="zuul" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="common" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="fegin1" options="-parameters" />
+      <module name="feign" options="-parameters" />
+      <module name="feign1" options="-parameters" />
+      <module name="feignapi" options="-parameters" />
+      <module name="provider" options="-parameters" />
+      <module name="zuul" options="-parameters" />
+    </option>
+  </component>
+</project>

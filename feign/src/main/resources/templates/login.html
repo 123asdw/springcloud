@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+    <!-- 引入bootstap的css文件 -->
+    <link rel="stylesheet" href="../js/bootstrap/bootstrap3/css/bootstrap.css">
+    <link rel="stylesheet" href="../js/bootstrap/bootstrap3/css/bootstrap-theme.css">
+    <!-- 引入jquery文件 -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <!-- 引入bootstrap的js文件 -->
+    <script type="text/javascript" src="../js/bootstrap/bootstrap3/js/bootstrap.min.js"></script>
+    <!-- bootstrap-table -->
+    <link rel="stylesheet" href="../js/bootstrap/bootstrap-table/bootstrap-table.css">
+    <script src="../js/bootstrap/bootstrap-table/bootstrap-table.js"></script>
+    <script  src="../js/bootstrap/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <!-- 引入弹框的js文件 -->
+    <script src="../js/bootstrap/bootstrap-bootbox/bootbox.js"></script>
+    <!-- 引入日期得css和js文件 -->
+    <script src="../js/bootstrap/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="../js/bootstrap/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+
+    <!-- 引入上传文件的css和js文件 -->
+    <script src="../js/bootstrap/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="../js/bootstrap/bootstrap-fileinput/js/locales/zh.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap/bootstrap-fileinput/css/fileinput.css">
+</head>
+<body>
+<div style="height:150px; width: 500px;"></div>
+<div style="border: solid 2px ;height:300px; width: 500px;margin: 0 auto;text-align: center;">
+    <form id="loginForm">
+        <div class="form-group" style="margin-left: 130px;margin-top: 80px">
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="name">账号:</label>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div style="height:10px; width: 500px;">
+
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="pwd">密码:</label>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" name="pwd" class="form-control" id="pwd" placeholder="请输入密码">
+                </div>
+            </div>
+        </div>
+    </form>
+    <div style="margin-top: 20px;margin-left: 30px">
+        <button type="button" class="btn btn-default" onclick="delMovieById()">注册</button>
+        <button type="button" class="btn btn-default" onclick="login()">登录</button>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    //登录
+    function login(){
+        $.ajax({
+            url:'../emp/login',//后台请求地址
+            type:'post',
+            data:$("#loginForm").serialize(),//表单序列化
+            success:function(data){
+                if(data=="登录成功！！"){
+                    location.href="../emp/show";
+                }
+            }
+        });
+    }
+</script>
+
+</html>
