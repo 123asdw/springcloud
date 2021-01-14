@@ -10,20 +10,10 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-/**
- * @program: springcloud-feign
- * @description:
- * @author: 刘洋朋
- * @create: 2021-01-08 20:19
- */
+
 @Component
 public class TestController extends ZuulFilter {
-    /**
-     * * pre：路由之前
-     * * routing：路由之时
-     * * post： 路由之后
-     * * error：发送错误调用
-     */
+
 
     private final static Logger LOGGER = org.slf4j.LoggerFactory.getLogger(TestController.class);
 
