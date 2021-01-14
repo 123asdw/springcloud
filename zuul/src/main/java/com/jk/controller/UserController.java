@@ -6,12 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
-/**
- * @program: springcloud-emp
- * @description:
- * @author: 刘洋朋
- * @create: 2021-01-11 17:08
- */
+
 @Controller
 @RequestMapping("user")
 public class UserController {
