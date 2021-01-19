@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="myform">
+    <table>
+        <tr>
+            <td><label>姓名</label></td>
+            <td>
+                <!--<input type="text" class="form-control" name="id" id="id"style="display: none">-->
+                <input type="text" class="form-control" name="name" id="name">
+            </td>
+        </tr>
+        <tr>
+            <td><label>初始密码</label></td>
+            <td>
+                <input type="text" class="form-control" name="efficient" id="efficient">
+            </td>
+        </tr>
+        <tr>
+            <td><label>性别</label></td>
+            <td>
+                <input type="text" class="form-control" name="typename" id="typename">
+            </td>
+        </tr>
+        <tr>
+            <td><label>手机号</label></td>
+            <td>
+                <input type="text" class="form-control" name="type" id="type">
+            </td>
+        </tr>
+        <tr>
+            <td><label>主属普门</label></td>
+            <td>
+                <input type="text" class="form-control" name="eligibility" id="eligibility">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+<script type="text/javascript">
+    $('.date').datetimepicker({
+        language: 'zh-CN',//显示中文
+        //format: 'yyyy-mm-dd hh:ii:ss',//显示格式
+        format: 'yyyy-mm-dd',//显示格式
+        minView: "month",//设置只显示到月份
+        initialDate: new Date(),//初始化当前日期
+        autoclose: true,//选中自动关闭
+        todayBtn: true//显示今日按钮
+    });
+</script>
+</html>
