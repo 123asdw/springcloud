@@ -13,33 +13,15 @@
             </td>
         </tr>
         <tr>
-            <td><label>密码</label></td>
+            <td><label>总评论数</label></td>
             <td>
-                <input type="text" class="form-control" name="pwd" id="pwd">
+                <input type="text"  class="form-control" name="comments" id="comments">
             </td>
         </tr>
         <tr>
-            <td><label>职位</label></td>
+            <td><label>发布时间</label></td>
             <td>
-                <select id="positionId" name="positionId"></select>
-            </td>
-        </tr>
-        <tr>
-            <td><label>部门</label></td>
-            <td>
-                <select id="departmentId" name="departmentId"></select>
-            </td>
-        </tr>
-        <tr>
-            <td><label>薪资</label></td>
-            <td>
-                <input type="text" class="form-control" name="pay" id="pay">
-            </td>
-        </tr>
-        <tr>
-            <td><label>座右铭</label></td>
-            <td>
-                <input type="text" class="form-control" name="motto" id="motto">
+                <input type="text"  class="form-control" name="datetime" id="datetime">
             </td>
         </tr>
     </table>
@@ -59,7 +41,6 @@
         findDept();
         findPositionId();
     })
-    //部门查询
     function findDept() {
         $.ajax({
             url: '/emp/findDept',//后台请求地址
@@ -75,7 +56,6 @@
             }
         });
     }
-
     function findPositionId() {
         $.ajax({
             url: '/emp/findPosition',//后台请求地址
@@ -91,6 +71,5 @@
             }
         });
     }
-
 </script>
 </html>
