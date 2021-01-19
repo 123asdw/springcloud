@@ -60,4 +60,49 @@ public class EmpController implements EmpsService {
     public HashMap<String, Object> findprizeList(prizeBean prize) {
         return empService.findprizeList(prize);
     }
+
+    @Override
+    public HashMap<String, Object> finduserLists(materialBean bean) {
+        return empService.finduserLists(bean);
+    }
+
+    @Override
+    public void add(materialBean bean) {
+        empService.add(bean);
+    }
+
+    @Override
+    public HashMap<String, Object> findxiangqingList(PositionBean posit) {
+        return empService.findxiangqingList(posit);
+    }
+
+    @Override
+    public HashMap<String, Object> find(yongbean yong) {
+        return empService.find(yong);
+    }
+
+    @Override
+    public void deleteid(Integer id) {
+        empService.deleteid(id);
+    }
+
+    @Override
+    public HashMap<String, Object> findlistdeng(UseridBean user) {
+        return empService.findlistdeng(user);
+    }
+
+    @Override
+    public void addid(prizeBean prize) {
+        empService.addid(prize);
+    }
+
+    @Override
+    public void deleteid2(Integer id) {
+        empService.deleteid2(id);
+    }
+
+    @Override
+    public List<materialBean> findeee() {
+        return empService.findeee();
+    }
 }
