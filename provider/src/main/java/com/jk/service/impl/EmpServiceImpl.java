@@ -94,7 +94,6 @@ public class EmpServiceImpl implements EmpService {
         map.put("total", count);
         map.put("rows", list);
         return map;
-
     }
     @Override
     public HashMap<String, Object> findprizeList(prizeBean prize) {
@@ -107,6 +106,74 @@ public class EmpServiceImpl implements EmpService {
         map.put("total", count);
         map.put("rows", list);
         return map;
+    }
+    @Override
+    public HashMap<String, Object> finduserLists(materialBean bean) {
+        Integer page = bean.getPage();
+        Integer rows = bean.getRows();
+        int count =empDao.count2(bean);
+        int start = (page-1)*rows;
+        List<prizeBean> list= empDao.finduserLists(start,rows,bean);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("total", count);
+        map.put("rows", list);
+        return map;
+    }
+    @Override
+    public void add(materialBean bean) {
+        empDao.add(bean);
+    }
+    @Override
+    public HashMap<String, Object> findxiangqingList(PositionBean posit) {
+        Integer page = posit.getPage();
+        Integer rows = posit.getRows();
+        int count =empDao.count3(posit);
+        int start = (page-1)*rows;
+        List<prizeBean> list= empDao.findxiangqingList(start,rows,posit);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("total", count);
+        map.put("rows", list);
+        return map;
+    }
+    @Override
+    public HashMap<String, Object> find(yongbean yong) {
+        Integer page = yong.getPage();
+        Integer rows = yong.getRows();
+        int count =empDao.count4(yong);
+        int start = (page-1)*rows;
+        List<prizeBean> list= empDao.find(start,rows,yong);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("total", count);
+        map.put("rows", list);
+        return map;
+    }
+    @Override
+    public void deleteid(Integer id) {
+        empDao.deleteid(id);
+    }
+    @Override
+    public HashMap<String, Object> findlistdeng(UseridBean user) {
+        Integer page = user.getPage();
+        Integer rows = user.getRows();
+        int count =empDao.count5(user);
+        int start = (page-1)*rows;
+        List<UseridBean> list= empDao.findlistdeng(start,rows,user);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("total", count);
+        map.put("rows", list);
+        return map;
+    }
+    @Override
+    public void addid(prizeBean prize) {
+        empDao.addid(prize);
+    }
+    @Override
+    public void deleteid2(Integer id) {
+        empDao.deleteid2(id);
+    }
+    @Override
+    public List<materialBean> findeee() {
+        return empDao.findeee();
     }
     private List<treeBean> findNodes(int pid) {
         List<treeBean> list = empDao.findTreeByPid(pid);
