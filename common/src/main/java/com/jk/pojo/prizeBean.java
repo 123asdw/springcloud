@@ -1,5 +1,7 @@
 package com.jk.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -26,6 +28,7 @@ public class prizeBean  implements Serializable {
     private Integer id;
     private  String name;
     private Integer person;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date timedate;
 
     private Integer page;
