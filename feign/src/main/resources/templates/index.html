@@ -90,11 +90,8 @@
             success:function(data){
                 $("#id").val(data.id);
                 $("#name").val(data.name);
-                $("#pwd").val(data.pwd);
-                $("#positionId").val(data.positionId);
-                $("#departmentId").val(data.departmentId);
-                $("#pay").val(data.pay);
-                $("#motto").val(data.motto);
+                $("#comments").val(data.comments);
+                $("#datetime").val(data.datetime);
             }
         });
     }
@@ -184,6 +181,13 @@
     function searEmp(){
         $('#userTable').bootstrapTable('refresh');//刷新表格
     }
+    function delJob1(){
+        $.ajax({
+            url:'',
+            type:'',
+            data:{id:id},
+        })
+    }
     //查询分页
     function initTable(){
         $("#userTable").bootstrapTable({
@@ -203,13 +207,14 @@
             },
             columns:[
                 {checkbox:true},
+                {field:'id',title:'id',align:'center',width:150},
                 {field:'name',title:'姓名',align:'center',width:150},
                 {field:'comments',title:'总评论数',align:'center',width:150},
                 {field:'datetime',title:'发布时间',align:'center',width:150},
                 {field:'*',title:'操作',align:'center',width:150,formatter:function(value,row,index){
                         var str = "";
-                        str += '<button type="button" class="btn btn-primary" data-toggle="button" onclick="updJob('+row.id+')">修改</button>';
-                        str += '<button type="button" class="btn btn-primary" data-toggle="button" onclick="delJob('+row.id+')">删除</button>';
+                        str += '<button type="button" class="btn btn-primary" data-toggle="button" onclick="updJob('+row.id+')">查看</button>';
+                        str += '<button type="button" class="btn btn-primary" data-toggle="button" onclick="delJob1('+row.id+')">关闭评论</button>';
                         return str;
                     }},
             ]
