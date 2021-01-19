@@ -29,4 +29,48 @@
         select * from prize
         limit #{start},#{rows}
     </select>
+<select id="count2" resultType="int">
+    select count(*) from material
+</select>
+    <select id="finduserLists" resultType="com.jk.pojo.materialBean">
+
+select * from material aa LEFT JOIN t_comment bb on aa.type=bb.id
+LEFT JOIN department cc on aa.id=cc.id
+
+
+    </select>
+
+    <insert id="add" parameterType="com.jk.pojo.materialBean">
+        insert into material values(#{id},#{name},#{efficient},#{typename},#{type},#{eligibility})
+
+    </insert>
+
+    <select id="count3" resultType="int">
+        select count(*) from t_position
+
+
+    </select>
+    <select id="findxiangqingList" resultType="com.jk.pojo.PositionBean">
+         select * from t_position
+        limit #{start},#{rows}
+    </select>
+<select id="count4" resultType="int">
+    select count(1) from t_yong
+
+</select>
+    <select id="find" resultType="com.jk.pojo.yongbean">
+          select * from t_yong
+        limit #{start},#{rows}
+    </select>
+
+    <select id="count5" resultType="int">
+        select count(*) from e_user
+    </select>
+    <select id="findlistdeng" resultType="com.jk.pojo.UseridBean">
+select  * from e_user
+ limit #{start},#{rows}
+    </select>
+    <insert id="addid" parameterType="com.jk.pojo.prizeBean">
+        insert into prize values(null,#{name},#{person},#{timedate})
+    </insert>
 </mapper>
