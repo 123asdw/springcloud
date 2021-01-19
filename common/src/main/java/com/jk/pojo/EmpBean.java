@@ -1,6 +1,7 @@
 package com.jk.pojo;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +11,7 @@ public class EmpBean implements Serializable {
     private Integer id;
     private String name;
     private String comments;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date datetime;
     private Integer page;
     private Integer rows;
