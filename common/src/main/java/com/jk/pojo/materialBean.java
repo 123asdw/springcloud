@@ -29,10 +29,7 @@ public class materialBean implements Serializable {
     private  Integer efficient;
     private Date datetime;
     private String eligibility;
-
-
     private  String typename;
-
     public String getTypename() {
         return typename;
     }
