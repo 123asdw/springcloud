@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-
     <!-- 引入bootstap的css文件 -->
     <link rel="stylesheet" href="../js/bootstrap/bootstrap3/css/bootstrap.css">
     <link rel="stylesheet" href="../js/bootstrap/bootstrap3/css/bootstrap-theme.css">
@@ -29,6 +28,25 @@
     <link rel="stylesheet" href="../js/bootstrap/bootstrap-fileinput/css/fileinput.css">
 </head>
 <body>
+<form class="form-inline">
+    <div class="form-group">
+        <label>用户ID</label>
+        <input type="text" class="form-control" id="id">
+        <label>用户类型</label>
+        <select type="text" class="form-control" id="name">
+            <option value="">---请选择产品---</option>
+
+        </select>
+    </div>
+    <button type="button" onclick="searEmp()" class="btn btn-success glyphicon glyphicon-search">搜索</button>
+    <button type="button" onclick="openadd()" class="btn btn-success glyphicon glyphicon-search">新增</button>
+</form>
+
+
+
+
+
+
 <table class="table" id="userTable"></table>
 
 </body>
@@ -37,7 +55,84 @@
     $(function(){
         findprizeList();
     })
-
+    //打开新增弹框
+    function openadd(){
+        bootbox.dialog({
+            title:'新增',
+            message: createAddContent("../emp/addShow4"),
+            closeButton: true,//是否显示关闭按钮
+            buttons : {
+                "success" : {
+                    "label" : "<i class='icon-ok'></i> 保存",
+                    "className" : "btn-sm btn-success",
+                    "callback" : function() {
+                        //提交表单数据：保存
+                        $.ajax({
+                            url:'../emp/addid',//后台请求地址
+                            type:'post',
+                            data:$("#myform").serialize(),//表单序列化
+                            dataType:'json',
+                            success:function(){
+                            }
+                        });
+                    }
+                },
+                "cancel" : {
+                    "label" : "<i class='icon-info'></i> 取消",
+                    "className" : "btn-sm btn-danger",
+                    "callback" : function() {
+                    }
+                }
+            }
+        });
+    }
+    var res;
+    function createAddContent(url){
+        $.ajax({
+            url:url,
+            async:false,//同步，默认是：异步
+            success:function(data){
+                res = data;
+            }
+        });
+        return res;
+    }
+    //删除
+    function delJob(id){
+        bootbox.confirm({
+            size: "small",//大小
+            title:"提示",
+            message: "是否确认删除?",
+            buttons: {
+                confirm: {
+                    label: '确定',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: '取消',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function(result){
+                if(result){
+                    $.ajax({
+                        url:"../emp/deleteid2",
+                        type:"post",
+                        data:{id:id},
+                        success:function(){
+                            //alert("删除成功！！！");
+                            bootbox.alert({
+                                size: "small",
+                                title: "提示",
+                                message: "删除成功！！！",
+                                callback: function(){}
+                            });
+                        }
+                    });
+                }
+            }
+        })
+    }
     //查询分页
     function findprizeList(){
         $("#userTable").bootstrapTable({
@@ -69,10 +164,5 @@
             ]
         });
     }
-
-
-
-
-
 </script>
 </html>
