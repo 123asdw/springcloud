@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/20065
     username: root
-    password:
+    password: root
     data:
       mongodb:
         uri: mongodb://localhost:27017/2006
