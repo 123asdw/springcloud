@@ -13,13 +13,14 @@ public interface EmpDao {
 
     List<EmpBean> findEmp(@Param("start") int start, @Param("rows") Integer rows,@Param("emp") EmpBean emp);
 
-    @Insert("insert into t_emp (name,pwd,positionId,departmentId,pay,motto)values(#{name},#{pwd},#{positionId},#{departmentId},#{pay},#{motto})")
+    @Insert("insert into t_comment (id,name,comments,datetime)" +
+            "values(#{id},#{name},#{comments},SYSDATE())")
     void addEmp(EmpBean emp);
 
-    @Update("update t_emp set name=#{name},pwd=#{pwd},positionId=#{positionId},departmentId=#{departmentId},pay=#{pay},motto=#{motto} where id=#{id}")
+    @Update("update t_comment set name=#{name},comments=#{comments},datetime=#{datetime} where id=#{id}")
     void updEmp(EmpBean emp);
 
-    @Select("select * from t_emp e LEFT JOIN t_department d on e.departmentId=d.departmentId LEFT JOIN t_position p on e.positionId=p.positionId where e.id=#{id}")
+    @Select("select * from t_comment  where id=#{id}")
     EmpBean findEmpByIds(Integer id);
 
     @Delete("delete from t_emp where id=#{id}")
@@ -42,5 +43,33 @@ public interface EmpDao {
 
     int count1(@Param("prize")prizeBean prize);
 
-    List<prizeBean> findprizeList(@Param("start")int start, @Param("start")Integer rows, @Param("prize")prizeBean prize);
+    List<prizeBean> findprizeList(@Param("start")int start, @Param("rows")Integer rows, @Param("prize")prizeBean prize);
+
+    int count2(@Param("bean")materialBean bean);
+
+    List<prizeBean> finduserLists(@Param("start")int start, @Param("rows")Integer rows, @Param("bean") materialBean bean);
+
+    void add(materialBean bean);
+
+    int count3(@Param("posit")PositionBean posit);
+
+    List<prizeBean> findxiangqingList(@Param("start")int start, @Param("rows")Integer rows, @Param("posit")PositionBean posit);
+
+    int count4(@Param("yong")yongbean yong);
+
+    List<prizeBean> find(@Param("start")int start, @Param("rows")Integer rows, @Param("yong")yongbean yong);
+    @Delete("delete  from material where id=#{id}")
+    void deleteid(Integer id);
+
+    int count5(@Param("user")UseridBean user);
+
+    List<UseridBean> findlistdeng(@Param("start")int start, @Param("rows")Integer rows, @Param("user")UseridBean user);
+
+    void addid(prizeBean prize);
+    @Delete("delete  from prize where id=#{id}")
+    void deleteid2(Integer id);
+
+
+    @Select("select * from material")
+    List<materialBean> findeee();
 }
